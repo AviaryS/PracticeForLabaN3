@@ -80,6 +80,43 @@ function insert_Row() {
 
 
 
+// taks 5
+function changeContent() {
+    table = document.querySelector('#myTable');
+    allTr = table.getElementsByTagName('tr');
+    numTr = +prompt('Введите номер строки: ');
+    numTd = +prompt('Введите номер столбца: ');
+
+    selectTr = allTr[numTr - 1];
+    allTd = selectTr.querySelectorAll('td');
+    selectTd = allTd[numTd - 1];
+
+    newText = prompt('Введите новый текст: ');
+    selectTd.innerHTML = newText;
+} 
+
+
+
+// task 6
+function createTable() {
+    table = document.querySelector('#myTable');
+    countTr = +prompt('Введите количество строк: ');
+    countTd = +prompt('Введите количество столбцов: ');
+
+    for (let num = 0; num < countTr; num++) {
+        makeTr = document.createElement('tr');
+        table.appendChild(makeTr);
+        for (let i = 0; i < countTd; i++) {
+            let makeTd = document.createElement('td');
+            makeTd.innerHTML = `Row ${num + 1} Celi ${i + 1}`;
+            makeTr.appendChild(makeTd);            
+        }
+    }
+}
+
+
+
+
 // task 7
 function removecolor() {
     select = document.querySelector('#colorSelect');
@@ -98,7 +135,7 @@ function removecolor() {
 // task 8
 function getOptions() {
     select = document.querySelector('#mySelect');
-    selectElemIndex = +select.selectedIndex + 1;
+    selectElemIndex = select.selectedIndex + 1;
     selectElem = select[select.selectedIndex].innerHTML;
     alert(`номер: ${selectElemIndex}, Элемент: ${selectElem}`);
 }
